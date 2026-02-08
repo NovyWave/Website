@@ -1,0 +1,70 @@
+---
+title: NovyWave
+description: Modern waveform viewer for digital design verification
+template: splash
+hero:
+  tagline: A modern, open-source waveform viewer. Built with Rust for performance and reliability, designed as a contemporary alternative to GTKWave.
+  image:
+    file: ../../assets/hero-screenshot.png
+  actions:
+    - text: Get Started
+      link: /getting-started/installation/
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/NovyWave/NovyWave
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Features
+
+<CardGrid>
+	<Card title="Multi-Format Support" icon="document">
+		Load **VCD**, **FST**, and **GHW** waveform files from any simulator — Icarus Verilog, Verilator, GHDL, ModelSim, and more.
+	</Card>
+	<Card title="Cross-Platform" icon="laptop">
+		Native desktop application for **Linux**, **macOS**, and **Windows** with automatic updates.
+	</Card>
+	<Card title="Keyboard-Driven" icon="rocket">
+		WASD-style navigation for zoom and pan, cursor movement with transition jumping, and full shortcut coverage for power users.
+	</Card>
+	<Card title="Multi-File Comparison" icon="list-format">
+		Load multiple waveform files side by side. Compare signals across different simulations, regression runs, or design partitions.
+	</Card>
+</CardGrid>
+
+## Supported Simulators
+
+NovyWave works with waveform files from any simulator that outputs standard formats:
+
+| Format | Extension | Simulators |
+|--------|-----------|------------|
+| **VCD** | `.vcd` | Icarus Verilog, Verilator, ModelSim, and most Verilog/SystemVerilog simulators |
+| **FST** | `.fst` | Verilator, GTKWave-optimized output |
+| **GHW** | `.ghw` | GHDL (VHDL simulator) |
+
+## Quick Links
+
+<CardGrid>
+	<LinkCard title="Installation" href="/getting-started/installation/" description="Download NovyWave for Linux, macOS, or Windows" />
+	<LinkCard title="Quick Start" href="/getting-started/quick-start/" description="Load your first waveform in under 5 minutes" />
+	<LinkCard title="Keyboard Shortcuts" href="/user-guide/keyboard-shortcuts/" description="Master efficient waveform navigation" />
+	<LinkCard title="Tutorials" href="/tutorials/first-waveform/" description="Step-by-step guides for common workflows" />
+</CardGrid>
+
+## Who is NovyWave For?
+
+- **Hardware engineers** working on digital design verification
+- **Students** learning digital design and HDL simulation
+- **Hobbyists** exploring FPGA and ASIC development
+- **Researchers** analyzing simulation results
+
+## Funding
+
+This project is funded through [NGI Zero Core](https://nlnet.nl/core), a fund established by [NLnet](https://nlnet.nl) with financial support from the European Commission's [Next Generation Internet](https://ngi.eu) program. Learn more at the [NLnet project page](https://nlnet.nl/project/NovyWave).
+
+## License
+
+NovyWave is open source software, released under the [MIT License](https://github.com/NovyWave/NovyWave/blob/main/LICENSE).
