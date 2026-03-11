@@ -7,11 +7,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'NovyWave',
-			description: 'Modern waveform viewer for digital design verification',
-			logo: {
-				src: './src/assets/novywave-logo.png',
-				replacesTitle: false,
-			},
+			description: 'Waveform viewer for VCD, FST, and GHW files, with desktop and browser modes.',
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/NovyWave/NovyWave' },
 			],

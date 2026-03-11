@@ -1,11 +1,12 @@
 ---
 title: NovyWave
-description: Modern waveform viewer for digital design verification
+description: Waveform viewer for VCD, FST, and GHW files, with desktop and browser modes.
 template: splash
 hero:
-  tagline: A modern, open-source waveform viewer. Built with Rust for performance and reliability, designed as a contemporary alternative to GTKWave.
+  tagline: Open-source waveform viewer for VCD, FST, and GHW files. Desktop app first, with a browser mode when needed.
   image:
-    file: ../../assets/hero-screenshot.png
+    html: |
+      <img src="/hero-screenshot.png" alt="NovyWave desktop UI" />
   actions:
     - text: Get Started
       link: /getting-started/installation/
@@ -21,29 +22,19 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 ## Features
 
 <CardGrid>
-	<Card title="Multi-Format Support" icon="document">
-		Load **VCD**, **FST**, and **GHW** waveform files from any simulator — Icarus Verilog, Verilator, GHDL, ModelSim, and more.
+	<Card title="Standard Formats" icon="document">
+		Works with **VCD**, **FST**, and **GHW** waveform files, so the docs can stay focused on the files you open instead of long simulator lists.
 	</Card>
-	<Card title="Cross-Platform" icon="laptop">
-		Native desktop application for **Linux**, **macOS**, and **Windows** with automatic updates.
+	<Card title="Desktop First" icon="laptop">
+		Native apps for **Linux**, **macOS**, and **Windows** are the main path. There is also a browser mode when running NovyWave locally or on another machine.
 	</Card>
-	<Card title="Keyboard-Driven" icon="rocket">
-		WASD-style navigation for zoom and pan, cursor movement with transition jumping, and full shortcut coverage for power users.
+	<Card title="Shortcut Support" icon="rocket">
+		Keyboard shortcuts cover common work such as zooming, panning, cursor movement, and jumping between transitions without pretending every action is keyboard-only.
 	</Card>
 	<Card title="Multi-File Comparison" icon="list-format">
-		Load multiple waveform files side by side. Compare signals across different simulations, regression runs, or design partitions.
+		Load multiple waveform files in one session and compare signals across regression runs, design variants, or separate parts of the system.
 	</Card>
 </CardGrid>
-
-## Supported Simulators
-
-NovyWave works with waveform files from any simulator that outputs standard formats:
-
-| Format | Extension | Simulators |
-|--------|-----------|------------|
-| **VCD** | `.vcd` | Icarus Verilog, Verilator, ModelSim, and most Verilog/SystemVerilog simulators |
-| **FST** | `.fst` | Verilator, GTKWave-optimized output |
-| **GHW** | `.ghw` | GHDL (VHDL simulator) |
 
 ## Quick Links
 
