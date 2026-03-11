@@ -1,49 +1,68 @@
-# Starlight Starter Kit: Basics
+# NovyWave Website
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+This repository contains the NovyWave documentation website built with Astro and Starlight.
 
-```
-npm create astro@latest -- --template starlight
-```
+## Documentation Ownership
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+All authored documentation lives in this repository.
 
-## 🚀 Project Structure
+- Treat `~/repos/NovyWave` as source material only.
+- Do not edit `~/repos/NovyWave` while updating docs here.
+- Use `~/repos/NovyWave` to verify behavior, commands, release assets, examples, and API details.
+- Ignore legacy website content in `~/repos/NovyWave` unless it helps identify missing topics.
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+## Content Sources
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
+When updating docs, verify claims against these sources in `~/repos/NovyWave`:
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+- `README.md` for product positioning and supported features
+- `docs/src/` for user, development, and API reference material
+- `examples/` and `test_files/` for reproducible tutorials
+- `.github/workflows/release.yml` for published installer artifacts
+- `Makefile.toml` for supported local development commands
+- `src-tauri/tauri.conf.json` for desktop packaging and updater behavior
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+Do not document planned features from `docs/plans/` unless they are already implemented and testable.
 
-Static assets, like favicons, can be placed in the `public/` directory.
+## Website Structure
 
-## 🧞 Commands
+Public docs are authored under `src/content/docs/`:
 
-All commands are run from the root of the project, from a terminal:
+- `getting-started/` for installation and first-run flows
+- `user-guide/` for interface, navigation, configuration, and troubleshooting
+- `tutorials/` for step-by-step HDL and workflow guides
+- `development/` for contributor-facing build and architecture docs
+- `api/` for shared types and message flow references
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Internal maintenance docs live under `docs/`:
 
-## 👀 Want to learn more?
+- `docs/documentation-audit-matrix.md`
+- `docs/documentation-verification.md`
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+## Commands
+
+Run all commands from the repo root:
+
+| Command | Purpose |
+| --- | --- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start the local docs site |
+| `npm run check` | Run Astro/Starlight validation |
+| `npm run build` | Build the production site |
+| `npm run validate` | Run validation and a full production build |
+| `npm run preview` | Preview the built site |
+
+## Documentation Workflow
+
+1. Gather facts from `~/repos/NovyWave`.
+2. Update the relevant pages in `src/content/docs/`.
+3. Update the audit matrix if pages, sources, or verification status changed.
+4. Follow `docs/documentation-verification.md` for automated and manual checks.
+5. Run `npm run validate` before finalizing changes.
+
+## Testing Expectations
+
+- Every route must build cleanly.
+- Procedural pages must be executable from the published instructions.
+- Platform-specific install pages must be checked against the actual release outputs.
+- Tutorials should use real files and commands from `~/repos/NovyWave/examples` whenever possible.

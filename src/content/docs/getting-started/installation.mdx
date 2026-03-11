@@ -1,182 +1,30 @@
 ---
 title: Installation
-description: Install NovyWave on Linux, macOS, or Windows
+description: Choose the correct NovyWave installer and platform guide
 ---
-
-import { Tabs, TabItem, Aside } from '@astrojs/starlight/components';
 
 Download the latest release from [GitHub Releases](https://github.com/NovyWave/NovyWave/releases):
 
-| Platform | Download |
-|----------|----------|
-| Linux (x64) | `novywave_x.x.x_amd64.deb` or `novywave_x.x.x_amd64.AppImage` |
-| macOS (Apple Silicon) | `NovyWave_x.x.x_aarch64.dmg` |
-| macOS (Intel) | `NovyWave_x.x.x_x64.dmg` |
-| Windows | `NovyWave_x.x.x_x64-setup.exe` |
+## Release Artifacts
 
-NovyWave includes an automatic update system. When a new version is available, you'll be notified and can update with a single click.
+The release workflow currently produces these platform bundles:
 
-## Platform Instructions
+| Platform | Typical files |
+| --- | --- |
+| Linux | `.deb`, `.AppImage`, `.rpm` |
+| macOS Apple Silicon | `aarch64.dmg` |
+| macOS Intel | `x64.dmg` |
+| Windows | NSIS `.exe`, sometimes `.msi` |
 
-<Tabs>
-<TabItem label="Linux">
+## Choose Your Platform
 
-### Debian/Ubuntu (.deb)
+- [Linux installation](/getting-started/installation/linux/) for `.deb`, `.AppImage`, and RPM-oriented guidance
+- [macOS installation](/getting-started/installation/macos/) for Apple Silicon, Intel, and Gatekeeper notes
+- [Windows installation](/getting-started/installation/windows/) for installer, SmartScreen, and WebView2 guidance
 
-```bash
-sudo dpkg -i novywave_x.x.x_amd64.deb
-```
+## Automatic Updates
 
-If you encounter dependency issues:
-
-```bash
-sudo apt-get install -f
-```
-
-### AppImage (Universal)
-
-The AppImage works on most Linux distributions without installation:
-
-```bash
-chmod +x NovyWave_x.x.x_amd64.AppImage
-./NovyWave_x.x.x_amd64.AppImage
-```
-
-To make it accessible system-wide:
-
-```bash
-sudo mv NovyWave_x.x.x_amd64.AppImage /usr/local/bin/novywave
-```
-
-### Dependencies
-
-NovyWave requires the following system libraries (usually pre-installed):
-
-```bash
-sudo apt-get install libwebkit2gtk-4.1-0 libgtk-3-0 libssl3
-```
-
-### Wayland vs X11
-
-NovyWave works with both Wayland and X11. If you experience issues on Wayland:
-
-```bash
-GDK_BACKEND=x11 novywave
-```
-
-### File Associations
-
-To associate waveform files with NovyWave:
-
-```bash
-cat > ~/.local/share/mime/packages/novywave.xml << EOF
-<?xml version="1.0" encoding="UTF-8"?>
-<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
-  <mime-type type="application/x-vcd">
-    <comment>Value Change Dump</comment>
-    <glob pattern="*.vcd"/>
-  </mime-type>
-  <mime-type type="application/x-fst">
-    <comment>Fast Signal Trace</comment>
-    <glob pattern="*.fst"/>
-  </mime-type>
-  <mime-type type="application/x-ghw">
-    <comment>GHDL Waveform</comment>
-    <glob pattern="*.ghw"/>
-  </mime-type>
-</mime-info>
-EOF
-
-update-mime-database ~/.local/share/mime
-```
-
-</TabItem>
-<TabItem label="macOS">
-
-### Apple Silicon (M1/M2/M3/M4)
-
-1. Download `NovyWave_x.x.x_aarch64.dmg`
-2. Open the DMG file
-3. Drag NovyWave to your Applications folder
-
-### Intel Macs
-
-1. Download `NovyWave_x.x.x_x64.dmg`
-2. Open the DMG file
-3. Drag NovyWave to your Applications folder
-
-### Gatekeeper Warning
-
-<Aside type="tip">
-On first launch, macOS may show a security warning because NovyWave is not yet notarized by Apple (beta release).
-</Aside>
-
-**Method 1:** Right-click (or Control-click) on NovyWave in Applications, select "Open", then click "Open" in the dialog.
-
-**Method 2:** Go to **System Preferences** > **Security & Privacy** > **General** and click "Open Anyway".
-
-### Command Line Access
-
-```bash
-# Add to PATH (add to ~/.zshrc for persistence)
-export PATH="/Applications/NovyWave.app/Contents/MacOS:$PATH"
-
-# Or create an alias
-alias novywave="/Applications/NovyWave.app/Contents/MacOS/NovyWave"
-```
-
-### File Associations
-
-1. Right-click a `.vcd`, `.fst`, or `.ghw` file in Finder
-2. Select "Get Info"
-3. Under "Open with:", select NovyWave
-4. Click "Change All..." to apply to all files of that type
-
-</TabItem>
-<TabItem label="Windows">
-
-### Installer
-
-1. Download `NovyWave_x.x.x_x64-setup.exe`
-2. Run the installer
-3. Follow the installation wizard
-4. Launch NovyWave from the Start Menu
-
-### Portable Version
-
-For a portable installation (no admin rights required):
-
-1. Download `NovyWave_x.x.x_x64.zip`
-2. Extract to your preferred location
-3. Run `NovyWave.exe`
-
-### Windows Defender SmartScreen
-
-<Aside type="tip">
-On first launch, Windows may show a SmartScreen warning because NovyWave is not code-signed (beta release). Click "More info" then "Run anyway".
-</Aside>
-
-### Adding to PATH
-
-```powershell
-$env:Path += ";C:\Program Files\NovyWave"
-```
-
-### File Associations
-
-The installer automatically creates file associations for `.vcd`, `.fst`, and `.ghw` files. To set them manually:
-
-1. Right-click a waveform file
-2. Select "Open with" > "Choose another app"
-3. Navigate to `NovyWave.exe`
-4. Check "Always use this app"
-
-### WebView2 Runtime
-
-NovyWave requires the Microsoft Edge WebView2 Runtime (pre-installed on Windows 10/11). If missing, download from [Microsoft WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2/).
-
-</TabItem>
-</Tabs>
+NovyWave includes a built-in update mechanism for packaged desktop releases. When a newer release is available, the application can prompt you to update without manually searching for a download.
 
 ## Verifying Your Installation
 
@@ -190,4 +38,4 @@ Try loading a waveform file using the **Load Files** button to verify everything
 
 ## Building from Source
 
-See the [contributing guide](https://github.com/NovyWave/NovyWave/blob/main/CONTRIBUTING.md) for build instructions.
+See [Building from Source](/development/building/) if you want to run NovyWave locally or contribute changes.
