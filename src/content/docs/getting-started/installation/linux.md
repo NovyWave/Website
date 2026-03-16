@@ -46,6 +46,34 @@ On Debian-family systems, these packages are commonly required:
 sudo apt-get install libwebkit2gtk-4.1-0 libgtk-3-0 libssl3
 ```
 
+As of v0.2.0, WebKitGTK hardware acceleration is enabled by default, which improves rendering performance for the standard desktop app. If you still experience rendering issues, consider using the Chrome Desktop Launcher described below.
+
+## Chrome Desktop Launcher
+
+If the standard desktop app has rendering issues with WebKitGTK, you can use the Chrome Desktop Launcher instead. It requires Chrome or Chromium installed on your system.
+
+**Install Chrome or Chromium:**
+
+```bash
+# Debian/Ubuntu
+sudo apt install chromium-browser
+
+# Fedora
+sudo dnf install chromium
+
+# Arch
+sudo pacman -S chromium
+```
+
+**Run the launcher:**
+
+```bash
+chmod +x novywave-chrome
+./novywave-chrome
+```
+
+The launcher searches for Chrome or Chromium in standard locations: `/usr/bin/chromium-browser`, `/usr/bin/chromium`, `/usr/bin/google-chrome-stable`, `/usr/bin/google-chrome`, and `/snap/bin/chromium`.
+
 ## Wayland and X11
 
 If you see rendering or input issues under Wayland, force X11 for a test run:

@@ -13,11 +13,12 @@ Solutions for common issues when using NovyWave.
 
 **Solutions:**
 1. **Windows:** Ensure [WebView2 runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2/) is installed
-2. **Linux:** Install WebKit dependencies:
+2. **Linux:** Install WebKit dependencies (as of v0.2.0, WebKitGTK hardware acceleration is enabled by default, which improves rendering performance):
    ```bash
    sudo apt-get install libwebkit2gtk-4.1-0
    ```
 3. Check that antivirus isn't blocking the application
+4. As an alternative, try the Chrome Desktop Launcher (`novywave-chrome`), which uses Chrome's rendering engine instead of WebKitGTK
 
 ### Crash on Startup
 
@@ -115,6 +116,32 @@ rm .novywave  # In project directory
 ### Wrong Key Behavior
 
 Check for conflicting system keyboard shortcuts or try with a different keyboard layout.
+
+## Chrome Launcher Issues
+
+### Chrome Launcher Does Not Start
+
+If `novywave-chrome` reports that no browser was found:
+
+- Verify Chrome, Chromium, or Edge is installed
+- On Linux, check that the binary is in your PATH or in a standard location (`/usr/bin/chromium`, `/usr/bin/google-chrome-stable`)
+- On macOS, check `/Applications/` for Chrome, Chromium, or Edge
+- On Windows, check Program Files directories
+
+If the launcher starts but shows a blank page, the backend may not be ready. The launcher waits up to 10 seconds for the backend. Check for port conflicts on your system.
+
+## Plugin Issues
+
+**reload_watcher does not trigger reload:**
+- Verify the plugin is enabled in your `.novywave` config (`enabled = true`)
+- Check file permissions — the watcher needs read access to the waveform files
+- Some network file systems may not propagate file change events
+
+**files_discovery does not find files:**
+- Check your `patterns` configuration in the plugin config section
+- Patterns use gitignore-style glob syntax (e.g., `"output/**/*.vcd"`)
+- Verify the files have supported extensions (default: `vcd`, `fst`)
+- Check the `debounce_ms` setting — minimum is 50ms
 
 ## Getting Help
 

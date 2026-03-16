@@ -3,13 +3,11 @@ title: Actor+Relay Pattern
 description: Learn the state-management model used throughout the NovyWave frontend
 ---
 
-NovyWave uses an Actor+Relay architecture for reactive state management in the frontend.
+NovyWave uses an Actor+Relay architecture for reactive state management in the frontend. This pattern eliminates shared mutable state — each actor owns its own slice of the application state and processes events one at a time. No locks, no races, no surprises.
 
 ## Actors
 
-Actors own state and update it sequentially in response to events.
-
-That gives NovyWave:
+Actors own state and update it sequentially in response to events. That gives NovyWave:
 
 - clearer event flow,
 - fewer accidental cross-updates,

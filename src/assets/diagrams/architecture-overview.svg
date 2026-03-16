@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" fill="none">
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .title { font-size: 16px; font-weight: 700; fill: #e2e8f0; }
+    .label { font-size: 13px; font-weight: 600; fill: #f8fafc; }
+    .sublabel { font-size: 11px; fill: #8b9db5; }
+    .box { rx: 8; ry: 8; stroke-width: 1.5; }
+    .arrow { stroke: #556a82; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    .dashed { stroke-dasharray: 6 4; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#556a82"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="440" rx="12" fill="#151c28"/>
+
+  <!-- Title -->
+  <text x="360" y="32" text-anchor="middle" class="title">NovyWave Architecture</text>
+
+  <!-- Frontend box -->
+  <rect x="40" y="56" width="280" height="120" class="box" fill="#1a2744" stroke="#3b82f6"/>
+  <text x="180" y="82" text-anchor="middle" class="label">frontend/</text>
+  <text x="180" y="102" text-anchor="middle" class="sublabel">Rust + WebAssembly UI</text>
+  <text x="180" y="118" text-anchor="middle" class="sublabel">Waveform rendering, interaction</text>
+  <text x="180" y="134" text-anchor="middle" class="sublabel">Actor+Relay state management</text>
+  <text x="180" y="150" text-anchor="middle" class="sublabel">Fast2D canvas rendering</text>
+
+  <!-- novyui box -->
+  <rect x="40" y="192" width="130" height="56" class="box" fill="#1a2744" stroke="#6366f1"/>
+  <text x="105" y="216" text-anchor="middle" class="label">novyui/</text>
+  <text x="105" y="234" text-anchor="middle" class="sublabel">UI building blocks</text>
+
+  <!-- shared box -->
+  <rect x="190" y="192" width="130" height="56" class="box" fill="#1a2744" stroke="#6366f1"/>
+  <text x="255" y="216" text-anchor="middle" class="label">shared/</text>
+  <text x="255" y="234" text-anchor="middle" class="sublabel">Types + protocol</text>
+
+  <!-- Backend box -->
+  <rect x="400" y="56" width="280" height="90" class="box" fill="#1a2744" stroke="#3b82f6"/>
+  <text x="540" y="82" text-anchor="middle" class="label">backend/</text>
+  <text x="540" y="102" text-anchor="middle" class="sublabel">MoonZoon backend</text>
+  <text x="540" y="118" text-anchor="middle" class="sublabel">File access, waveform parsing</text>
+  <text x="540" y="134" text-anchor="middle" class="sublabel">SSE communication</text>
+
+  <!-- Desktop wrappers -->
+  <rect x="400" y="162" width="130" height="56" class="box" fill="#1a2744" stroke="#8b5cf6"/>
+  <text x="465" y="186" text-anchor="middle" class="label">src-tauri/</text>
+  <text x="465" y="204" text-anchor="middle" class="sublabel">Desktop wrapper</text>
+
+  <rect x="550" y="162" width="130" height="56" class="box" fill="#1a2744" stroke="#8b5cf6"/>
+  <text x="615" y="186" text-anchor="middle" class="label">src-chrome/</text>
+  <text x="615" y="204" text-anchor="middle" class="sublabel">Chrome launcher</text>
+
+  <!-- Plugins box -->
+  <rect x="400" y="234" width="280" height="68" class="box" fill="#1a2744" stroke="#2dd4bf"/>
+  <text x="540" y="258" text-anchor="middle" class="label">plugins/</text>
+  <text x="540" y="276" text-anchor="middle" class="sublabel">WebAssembly plugins (hello_world, reload_watcher, files_discovery)</text>
+  <text x="540" y="292" text-anchor="middle" class="sublabel">WIT component model</text>
+
+  <!-- MCP box -->
+  <rect x="400" y="318" width="280" height="48" class="box" fill="#1a2744" stroke="#556a82" stroke-dasharray="6 4"/>
+  <text x="540" y="340" text-anchor="middle" class="label">novywave-mcp/</text>
+  <text x="540" y="356" text-anchor="middle" class="sublabel">Automation + testing (Chrome DevTools Protocol)</text>
+
+  <!-- Arrows: frontend <-> backend -->
+  <path d="M320,100 L400,100" class="arrow"/>
+  <path d="M400,120 L320,120" class="arrow"/>
+  <text x="360" y="94" text-anchor="middle" class="sublabel">Up msgs</text>
+  <text x="360" y="136" text-anchor="middle" class="sublabel">Down msgs</text>
+
+  <!-- Arrow: frontend -> novyui -->
+  <path d="M105,176 L105,192" class="arrow"/>
+
+  <!-- Arrow: frontend -> shared, backend -> shared -->
+  <path d="M255,176 L255,192" class="arrow"/>
+  <path d="M400,146 L330,200" class="arrow dashed"/>
+
+  <!-- Wellen library label -->
+  <rect x="40" y="380" width="640" height="40" rx="8" fill="#24344a"/>
+  <text x="360" y="405" text-anchor="middle" class="sublabel">wellen library (VCD, FST, GHW parsing) -- used by backend for all waveform formats</text>
+</svg>

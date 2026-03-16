@@ -38,6 +38,7 @@ export default defineConfig({
 						{ label: 'Cursor Controls', slug: 'user-guide/navigation/cursor' },
 						{ label: 'Signal Values and Formats', slug: 'user-guide/signal-values' },
 						{ label: 'Keyboard Shortcuts', slug: 'user-guide/keyboard-shortcuts' },
+						{ label: 'Plugins', slug: 'user-guide/plugins' },
 						{ label: 'Configuration', slug: 'user-guide/configuration' },
 						{ label: 'Troubleshooting', slug: 'user-guide/troubleshooting' },
 					],

@@ -46,6 +46,17 @@ alias novywave="/Applications/NovyWave.app/Contents/MacOS/NovyWave"
 3. Set **Open with** to NovyWave.
 4. Apply the change to all files of that type if desired.
 
+## Chrome Desktop Launcher
+
+As an alternative to the standard DMG app, you can use the Chrome Desktop Launcher. It requires Google Chrome, Chromium, or Microsoft Edge installed.
+
+The launcher searches these locations:
+- `/Applications/Google Chrome.app`
+- `/Applications/Chromium.app`
+- `/Applications/Microsoft Edge.app`
+
+Download the `novywave-chrome` binary for your architecture (Apple Silicon or Intel) from the release page.
+
 ## Troubleshooting
 
 ### App Won't Launch

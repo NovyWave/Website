@@ -3,7 +3,7 @@ title: Your First Waveform
 description: Step-by-step guide to viewing a waveform in NovyWave
 ---
 
-This tutorial walks you through viewing a waveform in NovyWave for the first time.
+This tutorial walks you through loading and exploring a waveform file in NovyWave. By the end, you will have navigated a timeline, inspected signal values, and changed display formats — the core skills for everyday waveform work.
 
 ## Prerequisites
 

@@ -61,8 +61,15 @@ Your selected signals now appear in the waveform viewer:
 | `Shift+Q` / `Shift+E` | Jump to previous / next transition |
 | `Z` | Reset zoom center |
 | `R` | Reset view (full zoom out) |
+| `M` | Create a named marker at cursor position |
+| `1`-`9` | Jump to marker |
+| `T` | Toggle tooltip |
 | `Ctrl+T` | Toggle theme (dark/light) |
 | `Ctrl+D` | Toggle dock mode |
+
+## What's New in v0.2.0
+
+NovyWave 0.2.0 also supports signal grouping, named timeline markers, analog signal traces, and a WebAssembly plugin system. See the [installation overview](/getting-started/installation/) for the new Chrome Desktop Launcher option.
 
 ## Next Steps
 

@@ -53,7 +53,10 @@ Once a signal is added to the waveform view, NovyWave tracks:
 - the scope path,
 - the variable name,
 - the chosen display format,
-- a unique identifier that keeps multi-file sessions unambiguous.
+- a unique identifier that keeps multi-file sessions unambiguous,
+- the signal type (e.g., bit, vector, real),
+- the row height in the waveform view,
+- analog display limits (see AnalogLimits).
 
 ## Time
 
@@ -69,6 +72,44 @@ Configuration captures persistent UI state such as:
 - theme,
 - dock mode,
 - timeline state.
+
+### AnalogLimits
+
+Controls the vertical scaling for analog (real-valued) signal display.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `auto` | boolean | When true, NovyWave auto-scales to fit visible data |
+| `min` | float | Manual minimum value (used when `auto` is false) |
+| `max` | float | Manual maximum value (used when `auto` is false) |
+
+### SignalGroupConfig
+
+Defines a named group of signals in the Selected Variables panel.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | string | Display name for the group |
+| `member_ids` | list of strings | Signal `unique_id` values belonging to this group |
+| `collapsed` | boolean | Whether the group is collapsed in the UI |
+
+### MarkerConfig
+
+A named bookmark on the timeline.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `time_ps` | unsigned 64-bit integer | Marker position in picoseconds |
+| `name` | string | Display label for the marker |
+
+### PlatformRoot
+
+An entry point in the file picker for the current operating system.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `path` | string | Absolute path to the root directory |
+| `label` | string | Display name (e.g., "Home", "Desktop") |
 
 ## Special Values
 

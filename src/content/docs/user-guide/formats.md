@@ -57,12 +57,16 @@ tfp->open("output.fst");
 
 **Extension:** `.ghw`
 
-GHW is the native GHDL waveform format and preserves VHDL-specific information well.
+GHW is the native output format of the GHDL simulator. It preserves VHDL-specific type information — records, arrays, and enumerations — better than VCD, which flattens everything into bit vectors.
 
 ### Strengths
 
 - good fit for GHDL and VHDL projects
 - preserves hierarchical and VHDL-oriented data cleanly
+- retains VHDL-specific type information (records, arrays, enumerations) that other formats lose
+- real-valued signals in GHW files are rendered as analog traces in NovyWave
+
+NovyWave parses GHW files through the wellen library, which handles the binary format and exposes scopes, signals, and type metadata to the viewer.
 
 ### Example Generation
 

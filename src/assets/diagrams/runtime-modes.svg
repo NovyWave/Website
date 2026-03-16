@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" fill="none">
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .title { font-size: 16px; font-weight: 700; fill: #e2e8f0; }
+    .label { font-size: 13px; font-weight: 600; fill: #f8fafc; }
+    .sublabel { font-size: 11px; fill: #8b9db5; }
+    .box { rx: 8; ry: 8; stroke-width: 1.5; }
+    .arrow { stroke: #556a82; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead2); }
+  </style>
+  <defs>
+    <marker id="arrowhead2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#556a82"/>
+    </marker>
+  </defs>
+
+  <rect width="720" height="280" rx="12" fill="#151c28"/>
+  <text x="360" y="32" text-anchor="middle" class="title">Runtime Modes</text>
+
+  <!-- Shared frontend -->
+  <rect x="260" y="50" width="200" height="48" class="box" fill="#1a2744" stroke="#3b82f6"/>
+  <text x="360" y="72" text-anchor="middle" class="label">Rust + WASM Frontend</text>
+  <text x="360" y="88" text-anchor="middle" class="sublabel">Same code for all modes</text>
+
+  <!-- Mode 1: Browser -->
+  <rect x="30" y="140" width="200" height="80" class="box" fill="#1a2744" stroke="#3b82f6"/>
+  <text x="130" y="166" text-anchor="middle" class="label">Browser Mode</text>
+  <text x="130" y="184" text-anchor="middle" class="sublabel">MoonZoon backend</text>
+  <text x="130" y="200" text-anchor="middle" class="sublabel">Any browser on localhost:8082</text>
+
+  <!-- Mode 2: Tauri Desktop -->
+  <rect x="260" y="140" width="200" height="80" class="box" fill="#1a2744" stroke="#8b5cf6"/>
+  <text x="360" y="166" text-anchor="middle" class="label">Tauri Desktop</text>
+  <text x="360" y="184" text-anchor="middle" class="sublabel">Embedded backend</text>
+  <text x="360" y="200" text-anchor="middle" class="sublabel">WebKitGTK / WebView2</text>
+
+  <!-- Mode 3: Chrome Desktop -->
+  <rect x="490" y="140" width="200" height="80" class="box" fill="#1a2744" stroke="#2dd4bf"/>
+  <text x="590" y="166" text-anchor="middle" class="label">Chrome Desktop</text>
+  <text x="590" y="184" text-anchor="middle" class="sublabel">Embedded backend</text>
+  <text x="590" y="200" text-anchor="middle" class="sublabel">Chrome/Edge --app mode</text>
+
+  <!-- Arrows -->
+  <path d="M300,98 L150,140" class="arrow"/>
+  <path d="M360,98 L360,140" class="arrow"/>
+  <path d="M420,98 L570,140" class="arrow"/>
+
+  <!-- Platform labels -->
+  <text x="130" y="244" text-anchor="middle" class="sublabel">All platforms</text>
+  <text x="360" y="244" text-anchor="middle" class="sublabel">Linux, macOS, Windows</text>
+  <text x="590" y="244" text-anchor="middle" class="sublabel">Linux, macOS, Windows</text>
+
+  <!-- Install labels -->
+  <text x="130" y="262" text-anchor="middle" class="sublabel">makers start</text>
+  <text x="360" y="262" text-anchor="middle" class="sublabel">.deb / .dmg / .exe</text>
+  <text x="590" y="262" text-anchor="middle" class="sublabel">novywave-chrome binary</text>
+</svg>

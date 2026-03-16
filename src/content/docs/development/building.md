@@ -56,6 +56,22 @@ makers tauri-build
 
 Use the first command for the web build and the second for packaged desktop artifacts.
 
+### Chrome Launcher
+
+```bash
+makers chrome-build
+```
+
+This compiles `src-chrome/` and produces `target/release/novywave-chrome`.
+
+### Plugins
+
+```bash
+makers build_plugins
+```
+
+This compiles all built-in WebAssembly plugins to `plugins/dist/`.
+
 ## Important Note
 
 Prefer `makers` tasks over direct `cargo build` or `cargo check` when following NovyWave's documented workflows, because the project wires browser, Tauri, and WASM steps together through those tasks.

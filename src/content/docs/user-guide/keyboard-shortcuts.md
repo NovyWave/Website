@@ -3,7 +3,7 @@ title: Keyboard Shortcuts
 description: Complete keyboard shortcut reference for NovyWave
 ---
 
-NovyWave is designed for keyboard-driven workflows. Master these shortcuts to navigate waveforms efficiently.
+NovyWave is built for keyboard-driven workflows. Once you learn the WASD controls, you will rarely need to reach for the mouse — zooming, panning, and cursor movement all stay under your fingertips.
 
 ## Global Shortcuts
 
@@ -19,7 +19,7 @@ NovyWave is designed for keyboard-driven workflows. Master these shortcuts to na
 
 | Shortcut | Action |
 |----------|--------|
-| `W` | Zoom in (centered on zoom point) |
+| `W` | Zoom in (centered on zoom center) |
 | `Shift+W` | Zoom in faster |
 | `S` | Zoom out |
 | `Shift+S` | Zoom out faster |
@@ -43,6 +43,19 @@ NovyWave is designed for keyboard-driven workflows. Master these shortcuts to na
 | `Shift+Q` | Jump to previous signal transition |
 | `E` | Move cursor right continuously |
 | `Shift+E` | Jump to next signal transition |
+
+### Markers
+
+| Shortcut | Action |
+|----------|--------|
+| `M` | Create a named marker at the current cursor position |
+| `1`–`9` | Jump to marker at that position |
+
+## Display
+
+| Shortcut | Action |
+|----------|--------|
+| `T` | Toggle waveform tooltip visibility |
 
 ## Dialog Shortcuts
 
@@ -86,3 +99,9 @@ The **blue vertical line** represents the zoom center:
 1. Different files may have different time ranges
 2. Zoom center at 0 aligns most files
 3. Use `R` to see full combined timeline
+
+## Related Pages
+
+- [Timeline Navigation](/user-guide/navigation/) — in-depth coverage of zoom center, cursor, and time scale concepts
+- [Zooming and Panning](/user-guide/navigation/zoom-pan/) — detailed zoom and pan mechanics
+- [Cursor Controls](/user-guide/navigation/cursor/) — cursor movement and transition jumping

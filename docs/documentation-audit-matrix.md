@@ -19,8 +19,9 @@ This matrix tracks what the website publishes, where the information comes from 
 | `/user-guide/navigation/cursor/` | `docs/src/user-guide/navigation/cursor.md` | Manual primary platform | Planned |
 | `/user-guide/signal-values/` | `README.md`, `shared/src/lib.rs`, `docs/src/user-guide/navigation/cursor.md` | Source review + app spot check | Planned |
 | `/user-guide/keyboard-shortcuts/` | `docs/src/user-guide/keyboard-shortcuts.md`, live app shortcuts | Manual primary platform | Planned |
-| `/user-guide/configuration/` | `docs/src/user-guide/configuration.md` | Manual primary platform | Planned |
-| `/user-guide/troubleshooting/` | `docs/src/user-guide/troubleshooting.md` | Scenario review + manual repro where safe | Planned |
+| `/user-guide/plugins/` | `plugins/`, `shared/src/lib.rs`, WIT definitions | Source review + manual primary platform | Planned |
+| `/user-guide/configuration/` | `.novywave`, `shared/src/lib.rs`, `src-tauri/tauri.conf.json` | Manual primary platform + source review | Planned |
+| `/user-guide/troubleshooting/` | `docs/src/user-guide/troubleshooting.md`, `src-chrome/src/main.rs` | Scenario review + manual repro where safe | Planned |
 | `/tutorials/first-waveform/` | `docs/src/tutorials/first-waveform.md`, `test_files/` | Manual primary platform | Planned |
 | `/tutorials/multi-file/` | `docs/src/tutorials/multi-file.md`, `test_files/` | Manual primary platform | Planned |
 | `/tutorials/vhdl-ghdl/` | `docs/src/tutorials/vhdl-ghdl.md`, `examples/vhdl/counter/README.md` | Manual Linux + source review | Planned |

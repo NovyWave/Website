@@ -5,6 +5,8 @@ description: How NovyWave requests data and reports results between UI and backe
 
 NovyWave uses a message-oriented protocol between the frontend and the layer that performs file access and waveform queries.
 
+![Message flow diagram showing up and down messages between frontend and backend](/assets/diagrams/message-flow.svg)
+
 ## Direction of Messages
 
 - **Up messages** go from the UI toward the backend or desktop command layer.
@@ -18,7 +20,8 @@ Frontend requests typically cover:
 - browsing directories,
 - loading waveform files,
 - requesting signal values at a given time,
-- requesting signal transitions for a visible range.
+- requesting signal transitions for a visible range,
+- `GetPlatformRoots` — requests platform-specific file system root directories.
 
 ## Common Down Messages
 
@@ -30,7 +33,8 @@ Responses typically cover:
 - parsing progress updates,
 - directory contents,
 - signal values,
-- signal transition data.
+- signal transition data,
+- `PlatformRoots` — returns the list of platform root directories for the file picker.
 
 ## Why the Protocol Exists
 
@@ -40,6 +44,10 @@ That matters in both runtime modes:
 
 - browser mode, where the Moon backend handles the work,
 - desktop mode, where Tauri-backed commands do the same job.
+
+## Plugin Communication
+
+Plugins do not participate in the main message protocol. Instead, they communicate with the host through defined WIT capabilities (logging, file queries, watcher registration, and waveform reload triggers). The host bridges plugin events into the application's internal state as needed.
 
 ## Typical File-Load Flow
 

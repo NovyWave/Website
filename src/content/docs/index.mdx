@@ -22,17 +22,20 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 ## Features
 
 <CardGrid>
-	<Card title="Standard Formats" icon="document">
-		Works with **VCD**, **FST**, and **GHW** waveform files, so the docs can stay focused on the files you open instead of long simulator lists.
+	<Card title="Multi-File Comparison" icon="list-format">
+		Load multiple waveform files in one session and compare signals across regression runs, design variants, or separate parts of the system.
+	</Card>
+	<Card title="Analog Signals" icon="seti:audio">
+		Real-valued signals are automatically rendered as continuous waveform traces with auto-scaling — no manual format switching needed.
+	</Card>
+	<Card title="WASD Navigation" icon="rocket">
+		WASD-style controls make zooming and panning fast, with built-in shortcuts for cursor movement and jumping between signal transitions.
 	</Card>
 	<Card title="Desktop First" icon="laptop">
 		Native apps for **Linux**, **macOS**, and **Windows** are the main path. There is also a browser mode when running NovyWave locally or on another machine.
 	</Card>
-	<Card title="Shortcut Support" icon="rocket">
-		Keyboard shortcuts cover common work such as zooming, panning, cursor movement, and jumping between transitions without pretending every action is keyboard-only.
-	</Card>
-	<Card title="Multi-File Comparison" icon="list-format">
-		Load multiple waveform files in one session and compare signals across regression runs, design variants, or separate parts of the system.
+	<Card title="WebAssembly Plugins" icon="puzzle">
+		Live-reload waveforms and auto-discover new dump files with built-in plugins — or build your own.
 	</Card>
 </CardGrid>
 
@@ -47,12 +50,31 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 	<LinkCard title="API Reference" href="/api/message-protocol/" description="Understand the internal data model and frontend/backend protocol" />
 </CardGrid>
 
+## What's New in v0.2.0
+
+<CardGrid>
+	<Card title="Signal Groups" icon="list-format">
+		Organize selected signals into named, collapsible groups.
+	</Card>
+	<Card title="Named Markers" icon="star">
+		Add labeled bookmarks on the timeline. Press M to create, 1-9 to jump.
+	</Card>
+	<Card title="Chrome Launcher" icon="external">
+		A lightweight alternative that opens NovyWave in Chrome's app mode — no WebKitGTK needed.
+	</Card>
+	<Card title="Row Resizing" icon="setting">
+		Drag dividers between signal rows to customize display height.
+	</Card>
+</CardGrid>
+
 ## Who is NovyWave For?
 
-- **Hardware engineers** working on digital design verification
-- **Students** learning digital design and HDL simulation
-- **Hobbyists** exploring FPGA and ASIC development
-- **Researchers** analyzing simulation results
+Whether you are debugging a counter that refuses to count, comparing regression runs across design variants, or just getting started with digital logic — NovyWave is built to make waveform inspection faster and more intuitive.
+
+- **Hardware engineers** verifying digital designs and tracking down simulation bugs
+- **Students** learning HDL simulation and exploring how signals change over time
+- **Hobbyists** building FPGA projects who want a modern alternative to GTKWave
+- **Researchers** analyzing large simulation datasets across multiple files
 
 ## What This Site Covers
 

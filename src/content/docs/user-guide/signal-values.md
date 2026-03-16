@@ -50,3 +50,29 @@ The copy action copies the currently formatted value, not the raw internal repre
 - a hex bus value into notes,
 - a decimal counter value into a bug report,
 - a grouped binary value into a review or discussion.
+
+## Analog Signals
+
+Real-valued signals — common in mixed-signal or analog simulation output — display as continuous waveform traces rather than digital transition blocks.
+
+NovyWave automatically scales the vertical axis to fit the visible data range. If you need a fixed scale, you can set manual minimum and maximum limits in the configuration file under each variable's `analog_limits` section:
+
+```toml
+[[workspace.selected_variables]]
+unique_id = "design.vcd|top|voltage"
+signal_type = "Real"
+row_height = 55
+
+[workspace.selected_variables.analog_limits]
+auto = false
+min = -1.8
+max = 3.3
+```
+
+The cursor value column shows the precise analog value at the current time position.
+
+## Related Pages
+
+- [Cursor Controls](/user-guide/navigation/cursor/) — move the cursor to inspect values at different times
+- [Configuration](/user-guide/configuration/) — customize formatters, analog limits, and row heights
+- [Interface Overview](/user-guide/interface-overview/) — understand where signal values appear in the UI

@@ -46,6 +46,14 @@ If the installer does not register file associations automatically:
 
 NovyWave depends on Microsoft Edge WebView2. It is normally present on Windows 10 and 11. If the app opens to a blank or incomplete window, install the runtime from Microsoft and try again.
 
+## Chrome Desktop Launcher
+
+As an alternative to the NSIS or MSI installer, you can use the Chrome Desktop Launcher. It requires Google Chrome, Microsoft Edge, or Chromium installed.
+
+The launcher searches Program Files and known installation paths for `chrome.exe`, `msedge.exe`, or `chromium.exe`.
+
+Download `novywave-chrome.exe` from the release page and run it directly — no installation required.
+
 ## Troubleshooting
 
 ### White Screen on Launch
