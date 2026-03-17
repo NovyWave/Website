@@ -11,7 +11,23 @@ NovyWave supports WebAssembly plugins that extend its functionality. Plugins run
 
 ### hello_world
 
-A minimal example plugin that logs "Hello World!" on startup. It is useful as a template for understanding the plugin lifecycle — read its source to see how a plugin registers with the host and responds to events.
+A minimal example plugin that logs "Hello World!" on startup. The entire source:
+
+```rust
+struct HelloWorld;
+
+impl Guest for HelloWorld {
+    fn init() {
+        host::log_info("Hello World!");
+    }
+
+    fn shutdown() {
+        host::log_info("hello_world plugin shutting down");
+    }
+}
+```
+
+Each plugin implements the `Guest` trait with `init` and `shutdown` hooks. The `host` module provides functions like `log_info` to communicate back to NovyWave. Plugin log output appears in the terminal where NovyWave was launched (e.g., `🔌 PLUGIN[novywave.hello_world]: Hello World!`).
 
 ### reload_watcher
 
@@ -23,12 +39,12 @@ This is especially useful during simulation. You can re-run your testbench and s
 
 This plugin discovers new waveform files matching configurable glob patterns and automatically opens them in NovyWave. It supports gitignore-style patterns and filters by file extension.
 
-Default supported extensions are `fst` and `vcd`.
+By default, the plugin filters for `fst` and `vcd` extensions. Add `ghw` if you work with GHDL waveforms.
 
 Configuration options:
 
 - **`patterns`** — glob patterns to match (e.g., `["test_files/**/*.vcd"]`)
-- **`allow_extensions`** — file extensions to accept
+- **`allow_extensions`** — file extensions to accept (default: `["fst", "vcd"]`, add `"ghw"` for GHDL output)
 - **`debounce_ms`** — debounce interval in milliseconds (default 200ms, minimum 50ms)
 
 Use this plugin when your build system writes simulation output to a known directory and you want NovyWave to pick up new files automatically.

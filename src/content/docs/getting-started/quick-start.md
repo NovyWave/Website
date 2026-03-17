@@ -19,8 +19,6 @@ novywave
 2. Navigate to your waveform file (`.vcd`, `.fst`, or `.ghw`)
 3. Select one or more files and click **Load**
 
-You can also drag and drop waveform files directly onto the application window.
-
 ## Step 3: Select a Scope
 
 After loading, your file appears in the Files & Scopes panel as a tree:
@@ -47,7 +45,7 @@ Your selected signals now appear in the waveform viewer:
 
 ## Step 6: Inspect Values
 
-- The **yellow cursor line** shows the current time position
+- The **blue cursor line** shows the current time position
 - Signal values at the cursor position appear in the Value column
 - Click the dropdown to change number format (Hex, Binary, etc.)
 
@@ -66,14 +64,3 @@ Your selected signals now appear in the waveform viewer:
 | `T` | Toggle tooltip |
 | `Ctrl+T` | Toggle theme (dark/light) |
 | `Ctrl+D` | Toggle dock mode |
-
-## What's New in v0.2.0
-
-NovyWave 0.2.0 also supports signal grouping, named timeline markers, analog signal traces, and a WebAssembly plugin system. See the [installation overview](/getting-started/installation/) for the new Chrome Desktop Launcher option.
-
-## Next Steps
-
-- [Loading Waveform Files](/user-guide/loading-files/) — Learn about formats and multi-file projects
-- [Timeline Navigation](/user-guide/navigation/) — Master zoom and pan controls
-- [Keyboard Shortcuts](/user-guide/keyboard-shortcuts/) — Full shortcut reference
-- [Configuration](/user-guide/configuration/) — Customize NovyWave

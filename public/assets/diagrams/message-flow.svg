@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" fill="none">
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .title { font-size: 16px; font-weight: 700; fill: #e2e8f0; }
+    .label { font-size: 13px; font-weight: 600; fill: #f8fafc; }
+    .sublabel { font-size: 11px; fill: #8b9db5; }
+    .msg { font-size: 11px; fill: #bfdbfe; font-style: italic; }
+    .box { rx: 8; ry: 8; stroke-width: 1.5; }
+    .arrow-up { stroke: #3b82f6; stroke-width: 1.5; fill: none; marker-end: url(#arr-up); }
+    .arrow-down { stroke: #8b5cf6; stroke-width: 1.5; fill: none; marker-end: url(#arr-down); }
+  </style>
+  <defs>
+    <marker id="arr-up" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arr-down" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#8b5cf6"/>
+    </marker>
+  </defs>
+
+  <rect width="560" height="340" rx="12" fill="#151c28"/>
+  <text x="280" y="32" text-anchor="middle" class="title">Message Protocol</text>
+
+  <!-- Frontend box -->
+  <rect x="30" y="56" width="200" height="270" class="box" fill="#1a2744" stroke="#3b82f6"/>
+  <text x="130" y="80" text-anchor="middle" class="label">Frontend (UI)</text>
+
+  <!-- Backend box -->
+  <rect x="330" y="56" width="200" height="270" class="box" fill="#1a2744" stroke="#8b5cf6"/>
+  <text x="430" y="80" text-anchor="middle" class="label">Backend</text>
+
+  <!-- Up messages (left to right, blue) -->
+  <text x="280" y="106" text-anchor="middle" class="sublabel">Up Messages</text>
+  <path d="M230,118 L330,118" class="arrow-up"/>
+  <text x="280" y="132" text-anchor="middle" class="msg">LoadFile, GetPlatformRoots</text>
+
+  <path d="M230,148 L330,148" class="arrow-up"/>
+  <text x="280" y="162" text-anchor="middle" class="msg">GetDirectoryContents</text>
+
+  <path d="M230,178 L330,178" class="arrow-up"/>
+  <text x="280" y="192" text-anchor="middle" class="msg">GetSignalValues, GetTransitions</text>
+
+  <path d="M230,208 L330,208" class="arrow-up"/>
+  <text x="280" y="222" text-anchor="middle" class="msg">SaveConfig, LoadConfig</text>
+
+  <!-- Down messages (right to left, purple) -->
+  <text x="280" y="248" text-anchor="middle" class="sublabel">Down Messages</text>
+  <path d="M330,258 L230,258" class="arrow-down"/>
+  <text x="280" y="272" text-anchor="middle" class="msg">FileLoaded, PlatformRoots</text>
+
+  <path d="M330,288 L230,288" class="arrow-down"/>
+  <text x="280" y="302" text-anchor="middle" class="msg">SignalValues, Transitions, Progress</text>
+
+  <path d="M330,318 L230,318" class="arrow-down"/>
+  <text x="280" y="316" text-anchor="middle" class="msg">DirectoryContents, ConfigSaved</text>
+</svg>

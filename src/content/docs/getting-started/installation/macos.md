@@ -55,7 +55,7 @@ The launcher searches these locations:
 - `/Applications/Chromium.app`
 - `/Applications/Microsoft Edge.app`
 
-Download the `novywave-chrome` binary for your architecture (Apple Silicon or Intel) from the release page.
+Download the binary for your architecture from the release page: `novywave-chrome-macos-aarch64` for Apple Silicon or `novywave-chrome-macos-x64` for Intel.
 
 ## Troubleshooting
 

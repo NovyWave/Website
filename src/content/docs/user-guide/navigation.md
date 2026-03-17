@@ -4,10 +4,11 @@ description: Learn the core timeline concepts before diving into detailed contro
 slug: user-guide/navigation
 ---
 
-NovyWave's waveform viewer revolves around a shared time axis and two guide lines:
+NovyWave's waveform viewer revolves around a shared time axis, two guide lines, and optional named markers:
 
-- the **blue zoom center**, which controls where zooming happens
-- the **yellow cursor**, which controls value inspection
+- the **green dashed zoom center**, which controls where zooming happens
+- the **blue cursor**, which controls value inspection
+- **named markers**, which bookmark specific time positions
 
 ## Related Pages
 
@@ -22,17 +23,18 @@ The waveform timeline consists of:
 1. **Signal Rows** showing selected variables
 2. **Value Blocks** showing transitions over time
 3. **Timeline Footer** showing visible range and scale
-4. **Yellow Cursor** for inspection time
-5. **Blue Zoom Center** for zoom focus
+4. **Blue Cursor** for inspection time
+5. **Green Dashed Zoom Center** for zoom focus
+6. **Named Markers** for bookmarking specific events
 
 ## Core Workflow
 
 Most timeline work follows this loop:
 
 1. reset or zoom out until the relevant event is visible,
-2. position the blue zoom center near the area of interest,
+2. position the green zoom center near the area of interest,
 3. zoom and pan toward the event,
-4. move the yellow cursor onto the exact transition,
+4. move the blue cursor onto the exact transition,
 5. read or copy values from the value column.
 
 ## Time Scale
@@ -45,6 +47,10 @@ NovyWave automatically formats time values based on the visible range:
 | Medium | milliseconds | `125.0ms` |
 | Close | microseconds | `125.0us` |
 | Very close | nanoseconds | `125ns` |
+
+## Named Markers
+
+Markers are labeled bookmarks on the timeline. Press **M** to create a marker at the current cursor position — NovyWave will prompt you for a name. Press **1** through **9** to jump directly to a marker. Markers persist across sessions in the configuration file.
 
 ## Full Reset
 

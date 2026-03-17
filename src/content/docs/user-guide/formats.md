@@ -66,7 +66,7 @@ GHW is the native output format of the GHDL simulator. It preserves VHDL-specifi
 - retains VHDL-specific type information (records, arrays, enumerations) that other formats lose
 - real-valued signals in GHW files are rendered as analog traces in NovyWave
 
-NovyWave parses GHW files through the wellen library, which handles the binary format and exposes scopes, signals, and type metadata to the viewer.
+NovyWave parses GHW files through the [wellen](https://github.com/ekiwi/wellen) library, which handles the binary format and exposes scopes, signals, and type metadata to the viewer.
 
 ### Example Generation
 

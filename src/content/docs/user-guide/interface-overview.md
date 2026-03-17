@@ -36,13 +36,13 @@ This panel combines the value list and the waveform timeline.
 
 ## Two Important Guide Lines
 
-### Blue Line: Zoom Center
+### Green Dashed Line: Zoom Center
 
-The blue line controls where zooming happens. When the mouse is over the waveform area, zoom operations happen around that position.
+The green dashed line controls where zooming happens. When the mouse is over the waveform area, zoom operations happen around that position.
 
-### Yellow Line: Cursor
+### Blue Line: Cursor
 
-The yellow line controls value inspection. The value column updates for the current cursor time.
+The blue line controls value inspection. The value column updates for the current cursor time.
 
 ### Marker Lines
 

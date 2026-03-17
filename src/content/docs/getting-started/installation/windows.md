@@ -52,7 +52,7 @@ As an alternative to the NSIS or MSI installer, you can use the Chrome Desktop L
 
 The launcher searches Program Files and known installation paths for `chrome.exe`, `msedge.exe`, or `chromium.exe`.
 
-Download `novywave-chrome.exe` from the release page and run it directly — no installation required.
+Download `novywave-chrome-windows-x64.exe` from the release page and run it directly — no installation required.
 
 ## Troubleshooting
 

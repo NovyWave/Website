@@ -19,12 +19,7 @@ Zoom and pan are the fastest way to move between high-level overview and precise
 
 ## Zoom Center
 
-NovyWave zooms around the **blue line**, not around the center of the screen.
-
-- when the pointer is over the waveform area, the blue line follows it
-- when the pointer leaves the waveform area, zooming falls back toward time 0
-
-This makes it easier to lock onto a specific event without losing orientation.
+NovyWave zooms around the **green dashed line**, which follows your pointer over the waveform area. Press `Z` to reset it to time 0.
 
 ## Zoom Level Display
 

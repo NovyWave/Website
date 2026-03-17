@@ -66,17 +66,17 @@ NovyWave is built for keyboard-driven workflows. Once you learn the WASD control
 
 ## Understanding the Timeline
 
-### Yellow Cursor Line
+### Blue Cursor Line
 
-The **yellow vertical line** represents the timeline cursor:
+The **blue vertical line** represents the timeline cursor:
 - Shows current time position
 - Signal values are displayed at this time
 - Move with `Q`/`E` keys or click on timeline
 - Jumps to transitions with `Shift+Q`/`Shift+E`
 
-### Blue Zoom Center
+### Green Zoom Center
 
-The **blue vertical line** represents the zoom center:
+The **green dashed vertical line** represents the zoom center:
 - Default position: 0 (timeline start)
 - Follows mouse cursor when hovering over canvas
 - Zoom operations center on this point

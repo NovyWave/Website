@@ -14,8 +14,8 @@ The release workflow currently produces these platform bundles:
 | Linux | `.deb`, `.AppImage`, `.rpm` |
 | macOS Apple Silicon | `aarch64.dmg` |
 | macOS Intel | `x64.dmg` |
-| Windows | NSIS `.exe`, sometimes `.msi` |
-| All platforms | `novywave-chrome` binary |
+| Windows | NSIS `.exe`, `.msi` |
+| Chrome launcher | `novywave-chrome-linux-x64`, `novywave-chrome-macos-aarch64`, `novywave-chrome-macos-x64`, `novywave-chrome-windows-x64.exe` |
 
 ## Choose Your Platform
 
@@ -25,18 +25,27 @@ The release workflow currently produces these platform bundles:
 
 ## Chrome Desktop Launcher
 
-The Chrome Desktop Launcher (`novywave-chrome`) is a lightweight alternative to the standard desktop application. It starts the NovyWave backend and opens the interface in Chrome, Chromium, or Microsoft Edge using `--app` mode.
+The Chrome Desktop Launcher is a lightweight alternative to the standard desktop application. It starts the NovyWave backend and opens the interface in Chrome, Chromium, or Microsoft Edge using `--app` mode.
 
 This option is useful when:
 - WebKitGTK rendering is slow on your Linux system
 - You prefer Chrome's rendering engine
 - You want a minimal installation without platform-specific GUI dependencies
 
-Download `novywave-chrome` for your platform from the [GitHub Releases](https://github.com/NovyWave/NovyWave/releases) page.
+Download the Chrome launcher for your platform from the [GitHub Releases](https://github.com/NovyWave/NovyWave/releases) page:
+
+| Platform | File |
+|----------|------|
+| Linux | `novywave-chrome-linux-x64` |
+| macOS Apple Silicon | `novywave-chrome-macos-aarch64` |
+| macOS Intel | `novywave-chrome-macos-x64` |
+| Windows | `novywave-chrome-windows-x64.exe` |
 
 ## Automatic Updates
 
-NovyWave includes a built-in update mechanism for packaged desktop releases. When a newer release is available, the application can prompt you to update without manually searching for a download.
+Auto-update is available for Linux AppImage, macOS DMG, and Windows NSIS installs. When a newer release is available, the application prompts you to update in place.
+
+Debian `.deb`, RPM, and MSI installs do not auto-update — download the new package from the [GitHub Releases](https://github.com/NovyWave/NovyWave/releases) page manually.
 
 ## Verifying Your Installation
 

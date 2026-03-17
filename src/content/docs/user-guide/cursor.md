@@ -4,7 +4,7 @@ description: Move the cursor, inspect values, and jump between transitions
 slug: user-guide/navigation/cursor
 ---
 
-The yellow cursor line marks the exact time currently being inspected.
+The blue cursor line marks the exact time currently being inspected.
 
 ## Moving the Cursor
 
@@ -41,15 +41,15 @@ You may see these logic states while inspecting waveforms:
 
 | Value | Meaning |
 | --- | --- |
-| `X` | unknown or undefined |
-| `Z` | high-impedance |
-| `U` | uninitialized, often from VHDL flows |
+| `X` | **Unknown** — the simulator cannot determine if the signal is 0 or 1 |
+| `Z` | **High-impedance** — the signal is not being driven, as if disconnected |
+| `U` | **Uninitialized** — no value assigned yet (common at VHDL simulation start) |
 
 ## Cursor vs Zoom Center
 
 The cursor and the zoom center are intentionally separate:
 
-- the **yellow line** chooses what time you are inspecting,
-- the **blue line** chooses what point zooming pivots around.
+- the **blue line** chooses what time you are inspecting,
+- the **green dashed line** chooses what point zooming pivots around.
 
 Keeping them separate lets you inspect one event while still zooming around another reference point.

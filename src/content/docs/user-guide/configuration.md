@@ -1,68 +1,60 @@
 ---
-title: Configuration
-description: Workspace persistence and configuration in NovyWave
+title: Workspace & Configuration
+description: Understand workspaces, per-workspace state, and global settings in NovyWave
 ---
 
 NovyWave automatically saves and restores your entire workspace state. Close NovyWave, come back later, and everything is exactly where you left it.
 
-## Configuration File Location
+## What is a Workspace?
 
-**Desktop application:**
+A workspace is simply a directory on your system. When you open a workspace, NovyWave creates a `.novywave` file in that directory to store the workspace state — loaded files, selected signals, timeline position, panel layout, and plugin configuration.
+
+When NovyWave starts, it opens a Default workspace based on the application's working directory. You can switch workspaces at any time via the **Open Workspace...** button in the header bar. NovyWave remembers your 3 most recent workspaces so you can switch between projects quickly.
+
+Each workspace is independent — opening a different workspace loads its own set of files, signals, and layout.
+
+## Configuration Files
+
+NovyWave uses two configuration files:
+
+### Workspace configuration (`.novywave`)
+
+Stored in the workspace root directory (e.g., `~/repos/my-project/.novywave`). Contains all workspace-specific state. Created automatically when you first open a directory as a workspace.
+
+### Global configuration (`.novywave_global`)
+
+Stores workspace history only — which workspace was last open and your recent workspaces list.
 
 | Platform | Path |
 |----------|------|
-| Linux | `~/.config/novywave/.novywave` |
-| macOS | `~/Library/Application Support/com.novywave/.novywave` |
-| Windows | `%APPDATA%/com.novywave/.novywave` |
-
-### Per-Project Configuration
-
-If a `.novywave` file exists in the current working directory, NovyWave uses it instead of the global config. This allows project-specific waveform setups, similar to how `Cargo.toml` configures Rust projects.
+| Linux | `~/.config/novywave/.novywave_global` |
+| macOS | `~/Library/Application Support/novywave/.novywave_global` |
+| Windows | `%APPDATA%\novywave\.novywave_global` |
 
 ## What Gets Saved
 
-### Application Settings
-- **Version** — Application version that last wrote the config
+### In `.novywave` (per workspace)
 
-### UI Preferences
+- **App version** — version that last wrote the config
 - **Theme** — Dark or Light
-- **Toast dismiss duration** — How long notifications stay visible
-
-### Workspace State
-- **Opened files** — Paths to loaded waveform files
+- **Toast dismiss duration** — how long notifications stay visible
+- **Opened files** — paths to loaded waveform files
 - **Dock mode** — Bottom or Right panel layout
-- **Expanded scopes** — Which tree nodes are open in the scope browser
-- **Load Files dialog state** — Expanded directories and scroll position
-- **Signal groups** — Named, collapsible groups of selected signals
+- **Expanded scopes** — which tree nodes are open in the scope browser
+- **Load Files dialog state** — expanded directories and scroll position
+- **Signal groups** — named, collapsible groups of selected signals
+- **Selected variables** — which signals are displayed, with signal type, row height, and analog limits
+- **Panel dimensions** — width and height of each panel, saved separately for Bottom and Right dock modes
+- **Timeline state** — cursor position, visible range, zoom center, tooltip enabled, named markers (all in picoseconds)
+- **Plugin configuration** — enabled plugins with their settings
 
-### Variable Selection
-- **Selected variables** — Which signals are displayed, identified by unique ID
-- **Signal type** — Wire, Real, or other signal types
-- **Row height** — Per-signal display height
-- **Analog limits** — Auto-scaling or manual min/max for real-valued signals
+### In `.novywave_global`
 
-### Panel Dimensions
-- **Panel sizes** — Width and height of each panel
-- **Column widths** — Variable name and value column sizes
-- Saved separately for Bottom and Right dock modes
+- **Last selected workspace** — restored on next launch
+- **Recent workspaces** — up to 3 most recently used directories
+- **Picker tree state** — scroll position and expanded paths in the workspace picker dialog
 
-### Timeline State
-- **Cursor position** — Current time position in picoseconds
-- **Visible range** — Displayed time window (start and end in picoseconds)
-- **Zoom center** — Zoom reference point in picoseconds
-- **Tooltip** — Whether the value tooltip is enabled
-- **Markers** — Named bookmarks at specific time positions
-
-### Workspace History
-- **Last selected workspace** — Most recently used workspace directory
-- **Recent paths** — List of recently opened workspace directories
-- **Picker tree state** — Scroll position and expanded paths in the workspace picker
-
-### Plugin Configuration
-- **Schema version** — Plugin configuration format version
-- **Plugin entries** — Installed plugins with ID, enabled state, artifact path, and per-plugin config
-
-## Configuration Format
+## Workspace Configuration Format
 
 The `.novywave` file uses TOML format:
 
@@ -130,27 +122,8 @@ tooltip_enabled = true
 time_ps = 22118
 name = "Marker 1"
 
-[global.workspace_history]
-last_selected = "/home/user/repos/NovyWave"
-recent_paths = [
-    "/home/user/repos/NovyWave",
-]
-
-[global.workspace_history.picker_tree_state]
-scroll_top = 0.0
-expanded_paths = [
-    "/home/user/repos",
-]
-
 [plugins]
 schema_version = 1
-
-[[plugins.entries]]
-id = "novywave.hello_world"
-enabled = true
-artifact_path = "plugins/dist/hello_world_plugin.wasm"
-
-[plugins.entries.config]
 
 [[plugins.entries]]
 id = "novywave.reload_watcher"
@@ -158,15 +131,24 @@ enabled = true
 artifact_path = "plugins/dist/reload_watcher_plugin.wasm"
 
 [plugins.entries.config]
+```
 
-[[plugins.entries]]
-id = "novywave.files_discovery"
-enabled = true
-artifact_path = "plugins/dist/files_discovery_plugin.wasm"
+## Global Configuration Format
 
-[plugins.entries.config]
-debounce_ms = 200
-patterns = ["test_files/to_discover/**/*.*"]
+The `.novywave_global` file stores only workspace history:
+
+```toml
+[workspace_history]
+last_selected = "/home/user/repos/NovyWave"
+recent_paths = [
+    "/home/user/repos/NovyWave",
+]
+
+[workspace_history.picker_tree_state]
+scroll_top = 0.0
+expanded_paths = [
+    "/home/user/repos",
+]
 ```
 
 ## Auto-Save Behavior
@@ -182,21 +164,29 @@ Configuration saves automatically with debouncing:
 
 ## Resetting Configuration
 
-### Full Reset
+### Reset a workspace
 
-Delete the configuration file:
+Delete the `.novywave` file in the workspace directory. NovyWave will create a fresh one on next launch:
+
+```bash
+rm .novywave
+```
+
+### Reset global settings
+
+Delete the global config file to clear workspace history:
 
 ```bash
 # Linux
-rm ~/.config/novywave/.novywave
+rm ~/.config/novywave/.novywave_global
 
 # macOS
-rm ~/Library/Application\ Support/com.novywave/.novywave
+rm ~/Library/Application\ Support/novywave/.novywave_global
 ```
 
 ```powershell
 # Windows
-Remove-Item $env:APPDATA\com.novywave\.novywave
+Remove-Item $env:APPDATA\novywave\.novywave_global
 ```
 
 ### Corrupted Configuration

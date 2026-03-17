@@ -43,7 +43,7 @@ NovyWave keeps full file and scope context in the variable identifier, which hel
 
 ## Practical Tips
 
-- press `Z` to recenter the blue zoom line around time 0
+- press `Z` to recenter the green zoom line around time 0
 - press `R` to fit the whole combined range
 - compare related signals in the same format to reduce visual noise
 

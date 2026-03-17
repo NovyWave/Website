@@ -20,10 +20,6 @@ NovyWave supports loading multiple waveform files simultaneously, making it easy
 3. Select one or more files
 4. Click **Load** or press Enter
 
-### Drag and Drop
-
-Drag waveform files from your file manager directly onto the NovyWave window.
-
 ## Working with Loaded Files
 
 ### File Tree Structure

@@ -9,13 +9,15 @@ NovyWave lets you choose how each selected signal is displayed at the current cu
 
 Depending on signal width and meaning, the value dropdown can display:
 
-- ASCII
-- Binary
-- Binary with grouped digits
-- Hexadecimal
-- Octal
-- Signed decimal
-- Unsigned decimal
+| Format | Example (for value 200) |
+|--------|------------------------|
+| Binary | `11001000` |
+| Binary (grouped) | `1100 1000` |
+| Hexadecimal | `C8` |
+| Octal | `310` |
+| Unsigned decimal | `200` |
+| Signed decimal | `-56` (for an 8-bit signal) |
+| ASCII | `OK` (multi-byte bus) or `A` (single byte) |
 
 ## When to Use Each Format
 
@@ -29,13 +31,13 @@ Depending on signal width and meaning, the value dropdown can display:
 
 NovyWave preserves digital special states rather than hiding them:
 
-| State | Meaning | Typical display |
-| --- | --- | --- |
-| `X` | unknown | `X` or placeholder |
-| `Z` | high-impedance | `Z` or placeholder |
-| `U` | uninitialized | `U` or placeholder |
+| State | Meaning |
+| --- | --- |
+| `X` | **Unknown** — the simulator cannot determine if the signal is 0 or 1 (e.g., conflicting drivers or unresolved logic) |
+| `Z` | **High-impedance** — the signal is not being driven by anything, as if the wire is disconnected |
+| `U` | **Uninitialized** — the signal has not been assigned a value yet (common at the start of VHDL simulations) |
 
-For text-oriented or decimal-oriented views, special states may render as placeholders instead of literal characters because they are not valid numeric or text values.
+These are not errors — they are valid signal states that simulators produce. They commonly appear at simulation start, on tri-state buses, or when modules are not yet active.
 
 ## `N/A` Values
 
@@ -55,21 +57,7 @@ The copy action copies the currently formatted value, not the raw internal repre
 
 Real-valued signals — common in mixed-signal or analog simulation output — display as continuous waveform traces rather than digital transition blocks.
 
-NovyWave automatically scales the vertical axis to fit the visible data range. If you need a fixed scale, you can set manual minimum and maximum limits in the configuration file under each variable's `analog_limits` section:
-
-```toml
-[[workspace.selected_variables]]
-unique_id = "design.vcd|top|voltage"
-signal_type = "Real"
-row_height = 55
-
-[workspace.selected_variables.analog_limits]
-auto = false
-min = -1.8
-max = 3.3
-```
-
-The cursor value column shows the precise analog value at the current time position.
+NovyWave automatically scales the vertical axis to fit the visible data range (**Auto** mode). You can switch to manual scaling by clicking the **Auto** button next to the analog signal in the Selected Variables panel, then setting your own min and max values. The cursor value column shows the precise analog value at the current time position.
 
 ## Related Pages
 

@@ -91,7 +91,7 @@ Press `R` to reset and see the entire simulation time.
 Press `W` repeatedly to zoom into an area of interest.
 
 ### Move the Cursor
-Click on the waveform to position the yellow cursor line. Watch the values update in the Value column.
+Click on the waveform to position the blue cursor line. Watch the values update in the Value column.
 
 ### Scan Through Time
 Hold `E` to move the cursor forward through time. Hold `Q` to move backward.

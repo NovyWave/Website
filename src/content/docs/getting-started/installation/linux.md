@@ -68,8 +68,8 @@ sudo pacman -S chromium
 **Run the launcher:**
 
 ```bash
-chmod +x novywave-chrome
-./novywave-chrome
+chmod +x novywave-chrome-linux-x64
+./novywave-chrome-linux-x64
 ```
 
 The launcher searches for Chrome or Chromium in standard locations: `/usr/bin/chromium-browser`, `/usr/bin/chromium`, `/usr/bin/google-chrome-stable`, `/usr/bin/google-chrome`, and `/snap/bin/chromium`.

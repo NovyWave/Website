@@ -13,7 +13,7 @@ Solutions for common issues when using NovyWave.
 
 **Solutions:**
 1. **Windows:** Ensure [WebView2 runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2/) is installed
-2. **Linux:** Install WebKit dependencies (as of v0.2.0, WebKitGTK hardware acceleration is enabled by default, which improves rendering performance):
+2. **Linux:** Install WebKit dependencies:
    ```bash
    sudo apt-get install libwebkit2gtk-4.1-0
    ```
@@ -67,11 +67,11 @@ These are valid signal states, not errors:
 
 | Display | Meaning |
 |---------|---------|
-| **X** | Unknown/undefined value |
-| **Z** | High-impedance (floating) |
-| **U** | Uninitialized |
+| **X** | The simulator cannot determine if the signal is 0 or 1 (e.g., conflicting drivers) |
+| **Z** | The signal is not being driven by anything, as if the wire is disconnected |
+| **U** | No value assigned yet (common at the start of VHDL simulations) |
 
-These typically occur at simulation start or with tri-state signals.
+These commonly appear at simulation start, on tri-state buses, or when modules are not yet active.
 
 ### Waveform Display is Blank
 
@@ -149,4 +149,3 @@ If these solutions don't resolve your issue:
 
 1. **Check existing issues:** [GitHub Issues](https://github.com/NovyWave/NovyWave/issues)
 2. **Open a new issue** with: NovyWave version, operating system, steps to reproduce, and error messages from terminal
-3. **Ask questions:** [GitHub Discussions](https://github.com/NovyWave/NovyWave/discussions)
