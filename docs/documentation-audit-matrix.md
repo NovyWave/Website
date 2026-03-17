@@ -31,11 +31,7 @@ This matrix tracks what the website publishes, where the information comes from 
 | `/tutorials/spade/` | `examples/spade/counter/README.md`, `examples/README.md` | Manual Linux + source review | Planned |
 | `/development/building/` | `docs/src/development/building.md`, `Makefile.toml` | Source review + local command spot check | Planned |
 | `/development/architecture/` | `docs/src/development/architecture.md`, repo structure | Source review | Planned |
-| `/development/actor-relay/` | `docs/src/development/actor-relay.md`, `frontend/src/dataflow/` | Source review | Planned |
 | `/development/testing/` | `docs/src/development/testing.md`, `Makefile.toml` | Source review + local command spot check | Planned |
-| `/development/contributing/` | `docs/src/development/contributing.md`, `CONTRIBUTING.md` | Source review | Planned |
-| `/api/data-types/` | `docs/src/api/data-types.md`, `shared/src/lib.rs` | Source review | Planned |
-| `/api/message-protocol/` | `docs/src/api/message-protocol.md`, backend/frontend message definitions | Source review | Planned |
 | `/changelog/` | `docs/src/changelog.md`, `CHANGELOG.md` | Source review | Planned |
 
 ## Notes

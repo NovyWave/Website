@@ -60,19 +60,10 @@ export default defineConfig({
 					items: [
 						{ label: 'Building from Source', slug: 'development/building' },
 						{ label: 'Architecture Overview', slug: 'development/architecture' },
-						{ label: 'Actor+Relay Pattern', slug: 'development/actor-relay' },
 						{ label: 'Testing NovyWave', slug: 'development/testing' },
-						{ label: 'Contributing', slug: 'development/contributing' },
 					],
 				},
-				{
-					label: 'API Reference',
-					items: [
-						{ label: 'Data Types', slug: 'api/data-types' },
-						{ label: 'Message Protocol', slug: 'api/message-protocol' },
-					],
-				},
-				{ label: 'Changelog', slug: 'changelog' },
+					{ label: 'Changelog', slug: 'changelog' },
 			],
 		}),
 	],
