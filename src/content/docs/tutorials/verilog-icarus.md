@@ -3,12 +3,14 @@ title: Verilog with Icarus
 description: Generate and view Verilog waveforms using Icarus Verilog and NovyWave
 ---
 
-This tutorial shows how to generate waveforms from Verilog using Icarus Verilog and view them in NovyWave.
+This tutorial shows how to generate waveforms from Verilog using [Icarus Verilog](https://github.com/steveicarus/iverilog) and view them in NovyWave. Icarus Verilog is an open-source Verilog simulator — it compiles your design into an intermediate form, then interprets it to produce simulation output including VCD waveform files.
 
 ## Prerequisites
 
-- [Icarus Verilog](http://iverilog.icarus.com/) installed
+- [Icarus Verilog](https://github.com/steveicarus/iverilog) installed
 - NovyWave installed ([Installation Guide](/getting-started/installation/))
+
+You can also install all the open-source HDL tools at once with the [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build), which bundles Icarus Verilog, GHDL, Yosys, and many other tools for Linux, macOS, and Windows.
 
 ### Installing Icarus Verilog
 
@@ -23,7 +25,7 @@ brew install icarus-verilog
 ```
 
 **Windows:**
-Download from [Icarus Verilog website](http://iverilog.icarus.com/)
+Download a prebuilt installer from the [Icarus Verilog releases](https://github.com/steveicarus/iverilog/releases).
 
 ## Step 1: Create a Simple Design
 
@@ -200,7 +202,11 @@ end
 
 ## Using FST Format (Verilator)
 
-For better performance with large designs, use Verilator with FST output:
+[Verilator](https://www.veripool.org/verilator/) is a different kind of simulator — it compiles your Verilog design into optimized C++ code, making it much faster than Icarus for large designs. It outputs FST files, which are 10-100x smaller and faster to load than VCD.
+
+Verilator is available via `apt`, `brew`, or [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build). On Windows, Verilator requires MSYS2 with a full MinGW build environment, which makes setup more involved — consider using WSL instead.
+
+Example FST output setup:
 
 ```cpp
 #include "verilated_fst_c.h"

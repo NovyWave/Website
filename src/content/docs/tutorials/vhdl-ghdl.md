@@ -3,12 +3,14 @@ title: VHDL with GHDL
 description: Generate and view VHDL waveforms using GHDL and NovyWave
 ---
 
-This tutorial shows how to generate waveforms from VHDL using GHDL and view them in NovyWave.
+This tutorial shows how to generate waveforms from VHDL using [GHDL](https://ghdl.github.io/ghdl/) and view them in NovyWave. GHDL is an open-source VHDL simulator that can produce GHW waveform files (its native format) or VCD files.
 
 ## Prerequisites
 
 - [GHDL](https://ghdl.github.io/ghdl/) installed
 - NovyWave installed ([Installation Guide](/getting-started/installation/))
+
+You can also install all the open-source HDL tools at once with the [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build), which bundles GHDL, Icarus Verilog, Yosys, and many other tools for Linux, macOS, and Windows.
 
 ### Installing GHDL
 
@@ -22,8 +24,8 @@ sudo apt-get install ghdl
 brew install ghdl
 ```
 
-**OSS CAD Suite (recommended):**
-Download from [YosysHQ/oss-cad-suite-build](https://github.com/YosysHQ/oss-cad-suite-build) — includes GHDL and many other tools.
+**Windows:**
+Install via [MSYS2](https://www.msys2.org/): `pacman -S mingw-w64-x86_64-ghdl`, or use the OSS CAD Suite.
 
 ## Step 1: Create a Simple Design
 

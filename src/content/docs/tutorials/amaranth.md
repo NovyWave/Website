@@ -3,7 +3,9 @@ title: Amaranth Counter
 description: Generate a VCD waveform from an Amaranth design and view it in NovyWave
 ---
 
-This tutorial walks you through building an 8-bit counter in [Amaranth HDL](https://amaranth-lang.org/), simulating it with Amaranth's built-in simulator, and exploring the resulting waveform in NovyWave. Amaranth is a hardware description language embedded in Python. You write your hardware designs as regular Python classes, and Amaranth compiles them to Verilog for synthesis or simulates them directly -- no external simulator needed.
+This tutorial walks you through building an 8-bit counter in [Amaranth HDL](https://amaranth-lang.org/), simulating it with Amaranth's built-in simulator, and exploring the resulting waveform in NovyWave. Amaranth is a hardware description language embedded in Python. You write your hardware designs as regular Python classes, and Amaranth compiles them to Verilog for synthesis or simulates them directly — no external simulator needed.
+
+This tutorial works on Linux, macOS, and Windows — Amaranth is pure Python with no platform-specific dependencies.
 
 ## Prerequisites
 

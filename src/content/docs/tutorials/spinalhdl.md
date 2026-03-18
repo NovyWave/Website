@@ -3,7 +3,9 @@ title: SpinalHDL with Verilator
 description: Generate a VCD waveform from a SpinalHDL counter and inspect it in NovyWave
 ---
 
-This tutorial walks you through building an 8-bit counter in [SpinalHDL](https://spinalhdl.github.io/SpinalDoc-RTD/), simulating it with Verilator, and exploring the resulting waveform in NovyWave. SpinalHDL is a hardware description language embedded in Scala that lets you write hardware designs using the full power of a modern programming language -- type safety, generics, and functional abstractions -- while generating clean Verilog or VHDL for synthesis and simulation.
+This tutorial walks you through building an 8-bit counter in [SpinalHDL](https://spinalhdl.github.io/SpinalDoc-RTD/), simulating it with [Verilator](https://www.veripool.org/verilator/), and exploring the resulting waveform in NovyWave. SpinalHDL is a hardware description language embedded in Scala that lets you write hardware designs using the full power of a modern programming language — type safety, generics, and functional abstractions — while generating clean Verilog or VHDL for synthesis and simulation. Verilator compiles the generated Verilog into optimized C++ for fast simulation.
+
+This tutorial works on Linux and macOS. On Windows, Java and sbt work natively, but Verilator requires MSYS2 with a full MinGW build environment — consider using WSL instead.
 
 ## Prerequisites
 
