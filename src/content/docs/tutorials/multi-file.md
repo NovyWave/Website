@@ -3,30 +3,18 @@ title: Multi-File Comparison
 description: Load and compare signals from multiple waveform files
 ---
 
-This tutorial shows how to load and compare signals from multiple waveform files in NovyWave.
-
-## Scenario
-
-You have two simulation results to compare:
-- `baseline.vcd` — known-good reference simulation
-- `current.vcd` — current design under test
+This tutorial shows how to load and compare signals from multiple waveform files in NovyWave. We'll use test files from the [NovyWave repository](https://github.com/NovyWave/NovyWave), but you can follow along with any waveform files.
 
 ## Step 1: Load Multiple Files
 
-### Method A: Multi-Select
-
 1. Click **Load Files**
-2. Navigate to your files directory
-3. Hold `Ctrl` (or `Cmd` on macOS)
-4. Click both `baseline.vcd` and `current.vcd`
-5. Click **Load**
-
-### Method B: Sequential Loading
-
-1. Click **Load Files** > Select `baseline.vcd` > Click **Load**
-2. Click **Load Files** > Select `current.vcd` > Click **Load**
+2. Navigate to the `test_files/` directory
+3. Check the boxes next to `simple.vcd` and `simple_reload_test.vcd`
+4. Click **Load**
 
 Both files now appear in the Files & Scopes panel.
+
+You can also load files one at a time — click **Load Files**, select a file, load it, then repeat for the next file.
 
 ## Step 2: Understand File Disambiguation
 
@@ -37,37 +25,33 @@ tests/pass/design.vcd  →  pass/design.vcd
 tests/fail/design.vcd  →  fail/design.vcd
 ```
 
+Hover over a signal name in the Selected Variables panel to see its full path, scope, and signal type.
+
 ## Step 3: Select Signals from Multiple Files
 
 ### From the First File
 
-1. Expand `baseline.vcd`
-2. Click the checkbox for the scope you want (e.g., `TOP > dut`)
-3. In the Variables panel, click `clk` and `data_out`
+1. Expand `simple.vcd` > `simple_tb` > `s`
+2. Click the checkbox next to `s`
+3. In the Variables panel, click `A` and `B`
 
 ### From the Second File
 
-1. Expand `current.vcd`
-2. Click the checkbox for the same scope (`TOP > dut`)
-3. In the Variables panel, click `data_out`
+1. Expand `simple_reload_test.vcd` > `simple_tb` > `s`
+2. Click the checkbox next to `s`
+3. In the Variables panel, click `A` and `B`
 
 ## Step 4: View Combined Signals
 
-The Selected Variables panel shows signals from both files together:
-
-```
-baseline.vcd|TOP|dut|clk       [1]    [Bin]
-baseline.vcd|TOP|dut|data_out  [0x42] [Hex]
-current.vcd|TOP|dut|data_out   [0x42] [Hex]
-```
+The Selected Variables panel shows signals from both files together on the same timeline.
 
 ## Step 5: Time Alignment
 
-Both files typically start at time 0, so they align automatically.
+Both files start at time 0, so they align automatically.
 
 Press `R` to see the full combined timeline. The view extends to cover the longest file.
 
-If your files have different durations (e.g., 100ns vs 150ns), signals from the shorter file show `N/A` outside their time range.
+If your files have different durations, signals from the shorter file show `N/A` outside their time range.
 
 ## Step 6: Compare Signals
 
@@ -88,32 +72,13 @@ Use `Shift+Q` and `Shift+E` to jump between transitions. If the files differ, on
 
 ## Practical Tips
 
-### Compare Clock Signals
-
-Add clock signals from both files to verify time alignment. If clocks don't match, there may be time scale differences.
-
-### Focus on Outputs
-
-When debugging, compare output signals first — outputs show the final result of internal differences. Trace backward from output differences to find the root cause.
-
-### Use Consistent Formatting
-
-Set the same format (Hex, Bin, etc.) for signals you're comparing to make differences easier to spot.
-
-### Use Common Scope Level
-
-Select scopes at the same hierarchy level in both files for meaningful comparison.
+- Press `Z` to recenter the green zoom line around time 0
+- Press `R` to fit the whole combined range
+- Compare related signals in the same format to reduce visual noise
+- Add clock signals from both files to verify time alignment
+- Compare output signals first — trace backward from differences to find the root cause
 
 ## Common Use Cases
-
-### Design Partitioning
-
-Compare signals from separately simulated subsystems:
-```
-cpu_simulation.vcd
-memory_simulation.vcd
-io_simulation.vcd
-```
 
 ### Regression Testing
 
@@ -133,9 +98,9 @@ vhdl_core.ghw      # VHDL implementation
 
 ## Removing Files
 
-- Click **X** on individual files in Files & Scopes panel
+- Click **X** on individual files in the Files & Scopes panel
 - Or click **Remove All** to clear everything
 
 ## Persistence
 
-NovyWave automatically saves your multi-file setup — both loaded files, all selected signals, and your view settings. Reopen NovyWave later to continue your analysis.
+NovyWave automatically saves your multi-file setup — loaded files, selected signals, and view settings persist across sessions.

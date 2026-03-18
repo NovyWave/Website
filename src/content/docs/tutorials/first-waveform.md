@@ -8,11 +8,8 @@ This tutorial walks you through loading and exploring a waveform file in NovyWav
 ## Prerequisites
 
 - NovyWave installed ([Installation Guide](/getting-started/installation/))
-- A waveform file (`.vcd`, `.fst`, or `.ghw`)
 
-If you don't have a waveform file, create one with these tutorials:
-- [VHDL with GHDL](/tutorials/vhdl-ghdl/)
-- [Verilog with Icarus](/tutorials/verilog-icarus/)
+This tutorial uses `test_files/simple.vcd` from the [NovyWave repository](https://github.com/NovyWave/NovyWave). You can also use any `.vcd`, `.fst`, or `.ghw` file from your own simulations.
 
 ## Step 1: Launch NovyWave
 
@@ -27,52 +24,47 @@ You'll see three main panels:
 - **Variables** (top-right)
 - **Selected Variables** (bottom)
 
-## Step 2: Load Your Waveform
+## Step 2: Load a Waveform
 
 Click **Load Files** in the Files & Scopes panel header.
 
-Navigate to your waveform file and select it. Click **Load**.
+Navigate to `test_files/simple.vcd` and select it. Click **Load**.
 
 Your file appears in the Files & Scopes tree with its time span:
 
 ```
-design.vcd (0-100ns)
+simple.vcd (0-250s)
 ```
 
 ## Step 3: Explore the Hierarchy
 
 Click the **chevron** (>) next to your file to expand it.
 
-You'll see the module hierarchy from your design:
+You'll see the module hierarchy:
 
 ```
-design.vcd (0-100ns)
-  └── TOP
-      ├── clock_gen
-      └── dut
-          └── internal
+simple.vcd (0-250s)
+  └── simple_tb
+      └── s
 ```
 
 ## Step 4: Select a Scope
 
-Click the **checkbox** next to a scope (e.g., `dut`).
+Click the **checkbox** next to `s`.
 
-The Variables panel now shows all signals in that scope:
+The Variables panel now shows the signals in that scope:
 
 ```
-clk         Wire 1-bit
-reset       Wire 1-bit
-data_in     Wire 8-bit
-data_out    Wire 8-bit
+A    Wire 4-bit
+B    Wire 4-bit
 ```
 
 ## Step 5: Add Signals to View
 
 Click on signals in the Variables panel to add them to the waveform view:
 
-1. Click `clk` — it appears in Selected Variables
-2. Click `data_in` — added below clk
-3. Click `data_out` — added below data_in
+1. Click `A` — it appears in Selected Variables
+2. Click `B` — added below A
 
 ## Step 6: View the Waveforms
 
@@ -106,10 +98,9 @@ This is useful for finding specific events without scrolling through constant va
 
 Click the dropdown in the Value column (showing `Hex`, `Bin`, etc.) and select a different format:
 
-- **Bin** — Binary (e.g., `10110100`)
-- **Hex** — Hexadecimal (e.g., `0xB4`)
-- **UInt** — Unsigned integer (e.g., `180`)
-- **Int** — Signed integer
+- **Bin** — Binary (e.g., `1010`)
+- **Hex** — Hexadecimal (e.g., `A`)
+- **UInt** — Unsigned integer (e.g., `10`)
 
 ## Step 10: Save Your Workspace
 
@@ -120,12 +111,6 @@ NovyWave automatically saves:
 - Panel sizes
 
 Close and reopen NovyWave — your workspace is restored automatically.
-
-## What's Next?
-
-- [Working with Multiple Files](/tutorials/multi-file/) — Compare waveforms
-- [Keyboard Shortcuts](/user-guide/keyboard-shortcuts/) — Navigate efficiently
-- [Timeline Navigation](/user-guide/navigation/) — Master zoom and pan
 
 ## Troubleshooting
 
