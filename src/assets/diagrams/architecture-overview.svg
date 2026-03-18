@@ -23,7 +23,7 @@
   <!-- Frontend box -->
   <rect x="40" y="56" width="280" height="120" class="box" fill="#1a2744" stroke="#3b82f6"/>
   <text x="180" y="82" text-anchor="middle" class="label">frontend/</text>
-  <text x="180" y="102" text-anchor="middle" class="sublabel">Rust + WebAssembly UI</text>
+  <text x="180" y="102" text-anchor="middle" class="sublabel">MoonZoon frontend (Rust + WASM)</text>
   <text x="180" y="118" text-anchor="middle" class="sublabel">Waveform rendering, interaction</text>
   <text x="180" y="134" text-anchor="middle" class="sublabel">Mutables+Signals reactivity</text>
   <text x="180" y="150" text-anchor="middle" class="sublabel">Fast2D canvas rendering</text>
@@ -57,8 +57,8 @@
   <!-- Plugins box -->
   <rect x="400" y="234" width="280" height="68" class="box" fill="#1a2744" stroke="#2dd4bf"/>
   <text x="540" y="258" text-anchor="middle" class="label">plugins/</text>
-  <text x="540" y="276" text-anchor="middle" class="sublabel">WebAssembly plugins (hello_world, reload_watcher, files_discovery)</text>
-  <text x="540" y="292" text-anchor="middle" class="sublabel">WIT component model</text>
+  <text x="540" y="276" text-anchor="middle" class="sublabel">Built-in WASM plugins</text>
+  <text x="540" y="292" text-anchor="middle" class="sublabel">Wasmtime + WIT component model</text>
 
   <!-- MCP box -->
   <rect x="400" y="318" width="280" height="48" class="box" fill="#1a2744" stroke="#556a82" stroke-dasharray="6 4"/>
